@@ -6,7 +6,7 @@ require "json"
 
 
 class Dollar
-  API_KEY =' apikey=9c84db4d447c80c74961a72245371245cb7ac15f'
+  API_KEY ='apikey=9c84db4d447c80c74961a72245371245cb7ac15f'
   FORMAT = 'formato=json'
   def from(year, month, day)
     url = URI("https://api.sbif.cl/api-sbifv3/recursos_api/dolar/#{year}/#{month}/dias/#{day}?#{API_KEY}&#{FORMAT}")
