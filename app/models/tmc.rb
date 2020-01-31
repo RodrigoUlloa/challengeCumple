@@ -1,6 +1,5 @@
 require "uri"
 require "net/http"
-require "byebug"
 require "json"
 
 class TMC
