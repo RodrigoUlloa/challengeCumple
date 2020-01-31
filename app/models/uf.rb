@@ -1,20 +1,21 @@
-from(*date_array)
 require "uri"
 require "net/http"
 require "byebug"
 require "json"
 
 
-class Dollar
-  API_KEY =' apikey=9c84db4d447c80c74961a72245371245cb7ac15f'
+class UF
+
+  API_KEY ='apikey=9c84db4d447c80c74961a72245371245cb7ac15f'
   FORMAT = 'formato=json'
+
   def from(year, month, day)
     url = URI("https://api.sbif.cl/api-sbifv3/recursos_api/uf/#{year}/#{month}/dias/#{day}?#{API_KEY}&#{FORMAT}")
     http = Net::HTTP.new(url.host, url.port);
     http.use_ssl = true
     request = Net::HTTP::Get.new(url)
-    response = http.requrest(request)
-    JSON.parse(rresponse.read_body)
+    response = http.request(request)
+    JSON.parse(response.read_body)
   end
 
   def from_to(from, to)
@@ -23,7 +24,7 @@ class Dollar
       date_array = date.strftime("%Y %m %d").split(' ')
       info = from(*date_array)
       begin
-        data[info['UF'][0]['Fecha']] = infor['UF'][0]['Valor']
+        data[info['UFs'][0]['Fecha']] = info['UFs'][0]['Valor']
       rescue
         data[date.to_s]=info['Mensaje']
       end

@@ -1,0 +1,94 @@
+<h3>Dollar</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Valor</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% values_dollar = [] %>
+    <% values_dates =[] %>
+    <% @dollar_info.each do |quote| %>
+    <tr>
+      <td><%=quote[0]%></td>
+      <td><%=quote[1]%></td>
+      <% values_dollar << quote[1].to_f %>
+      <% values_dates << quote[0] %>
+    </tr>
+    <% end %>
+    <% avarage_dollar = values_dollar.inject{|sum, val| sum + val}.to_f / values_dollar.size %>
+    <% max_dollar = values_dollar.max %>
+    <% values_dollar_fil = values_dollar.reject{|i| i === 0.0} %>
+    <% min_dollar = values_dollar_fil.min %>
+
+  </tbody>
+</table>
+<br><br>
+<table>
+  <thead>
+    <thead>
+      <tr>
+        <th>Promedio</th>
+        <th>Valor mas alto</th>
+        <th>Valor mas bajo</th>
+        <th colspan="3"></th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= avarage_dollar %></td>
+      <td><%= max_dollar %></td>
+      <td><%= min_dollar %></td>
+    </tr>
+  </tbody>
+</table>
+
+<div id="chart_div"></div>
+
+<br><br>
+
+<h3>UF</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Valor</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% values_uf = [] %>
+    <% @uf_info.each do |quote| %>
+    <tr>
+      <td><%=quote[0]%></td>
+      <td><%=quote[1]%></td>
+      <% values_uf << quote[1] %>
+    </tr>
+    <% end %>
+    <% avarage_uf = values_uf.inject{|sum, val| sum + val}.to_f / values_uf.size %>
+    <% max_uf = values_uf.max %>
+    <% min_uf = values_uf.min %>
+
+  </tbody>
+</table>
+<br><br>
+<table>
+  <thead>
+    <thead>
+      <tr>
+        <th>Promedio</th>
+        <th>Valor mas alto</th>
+        <th>Valor mas bajo</th>
+        <th colspan="3"></th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= avarage_uf %></td>
+      <td><%= max_uf %></td>
+      <td><%= min_uf %></td>
+    </tr>
+  </tbody>
+</table>

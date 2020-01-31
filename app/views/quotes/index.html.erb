@@ -1,0 +1,12 @@
+
+<%= form_with url: '/quotes' ,scope: 'quote', local: true do |f|%>
+  <%= f.label(:from, "Desde") %>
+  <%= f.text_field(:from) %>
+  <%= f.label(:to, "Hasta") %>
+  <%= f.text_field(:to) %>
+  <%= f.check_box(:uf) %>
+  <%= f.label(:uf, "UF") %>
+  <%= f.check_box(:dollar) %>
+  <%= f.label(:dollar, "Dollar") %>
+  <%= f.submit 'Enviar'%>
+<% end %>
